@@ -3,6 +3,7 @@ package com.example.mrenouf.touchtest;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -13,18 +14,18 @@ import android.widget.FrameLayout;
  * Created by mrenouf on 1/24/18.
  */
 
-public class TouchTracingFrameLayout extends FrameLayout {
+public class TouchTracingNestedScrollView extends NestedScrollView {
   final String name;
 
-  public TouchTracingFrameLayout(@NonNull Context context) {
+  public TouchTracingNestedScrollView(@NonNull Context context) {
     this(context, null, 0);
   }
 
-  public TouchTracingFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+  public TouchTracingNestedScrollView(@NonNull Context context, @Nullable AttributeSet attrs) {
     this(context, attrs, 0);
   }
 
-  public TouchTracingFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+  public TouchTracingNestedScrollView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
     if (getId() != View.NO_ID) {
       name = context.getResources().getResourceEntryName(getId());
@@ -34,21 +35,10 @@ public class TouchTracingFrameLayout extends FrameLayout {
   }
 
   @Override
-  public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-    Log.d(name, "requestDisallowInterceptTouchEvent (" + disallowIntercept + ") <-");
-    super.requestDisallowInterceptTouchEvent(disallowIntercept);
-    Log.d(name, "requestDisallowInterceptTouchEvent (" + disallowIntercept + ") ->");
-  }
-
-  @Override
   public boolean onInterceptTouchEvent(MotionEvent ev) {
-    if (ev.getActionMasked() != MotionEvent.ACTION_MOVE) {
-      Log.d(name, "-> onInterceptTouchEvent (" + ev.toString() + ")");
-    }
+    Log.d(name, "-> onInterceptTouchEvent (" + ev.toString() + ")");
     boolean intercepted = super.onInterceptTouchEvent(ev);
-    if (ev.getActionMasked() != MotionEvent.ACTION_MOVE) {
-      Log.d(name, "<- onInterceptTouchEvent (" + intercepted + ")");
-    }
+    Log.d(name, "<- onInterceptTouchEvent (" + intercepted + ")");
     return intercepted;
   }
 
@@ -57,11 +47,12 @@ public class TouchTracingFrameLayout extends FrameLayout {
     if (event.getActionMasked() != MotionEvent.ACTION_MOVE) {
       Log.d(name, "-> onTouchEvent (" + event.toString() + ")");
     }
+
     boolean handled = super.onTouchEvent(event);
     if (event.getActionMasked() != MotionEvent.ACTION_MOVE) {
       Log.d(name, "<- onTouchEvent (" + handled + ")");
     }
-    return  handled;
+    return handled;
   }
 
   @Override

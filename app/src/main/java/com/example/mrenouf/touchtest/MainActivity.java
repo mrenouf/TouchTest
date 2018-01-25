@@ -11,9 +11,13 @@ public class MainActivity extends Activity {
 
   @Override
   public boolean dispatchTouchEvent(MotionEvent ev) {
-    Log.d(TAG, "-> dispatchTouchEvent (" + ev.toString() + ")");
+    if (ev.getActionMasked() != MotionEvent.ACTION_MOVE) {
+      Log.d(TAG, "-> dispatchTouchEvent (" + ev.toString() + ")");
+    }
     boolean handled = super.dispatchTouchEvent(ev);
-    Log.d(TAG, "<- dispatchTouchEvent (" + handled + ")");
+    if (ev.getActionMasked() != MotionEvent.ACTION_MOVE) {
+      Log.d(TAG, "<- dispatchTouchEvent (" + handled + ")");
+    }
     return handled;
   }
 
