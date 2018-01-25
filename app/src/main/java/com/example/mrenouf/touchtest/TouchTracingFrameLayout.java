@@ -42,37 +42,25 @@ public class TouchTracingFrameLayout extends FrameLayout {
 
   @Override
   public boolean onInterceptTouchEvent(MotionEvent ev) {
-    if (ev.getActionMasked() != MotionEvent.ACTION_MOVE) {
-      Log.d(name, "-> onInterceptTouchEvent (" + ev.toString() + ")");
-    }
+    Log.d(name, "-> onInterceptTouchEvent (" + ev.toString() + ")");
     boolean intercepted = super.onInterceptTouchEvent(ev);
-    if (ev.getActionMasked() != MotionEvent.ACTION_MOVE) {
-      Log.d(name, "<- onInterceptTouchEvent (" + intercepted + ")");
-    }
+    Log.d(name, "<- onInterceptTouchEvent (" + intercepted + ")");
     return intercepted;
   }
 
   @Override
   public boolean onTouchEvent(MotionEvent event) {
-    if (event.getActionMasked() != MotionEvent.ACTION_MOVE) {
-      Log.d(name, "-> onTouchEvent (" + event.toString() + ")");
-    }
+    Log.d(name, "-> onTouchEvent (" + event.toString() + ")");
     boolean handled = super.onTouchEvent(event);
-    if (event.getActionMasked() != MotionEvent.ACTION_MOVE) {
-      Log.d(name, "<- onTouchEvent (" + handled + ")");
-    }
-    return  handled;
+    Log.d(name, "<- onTouchEvent (" + handled + ")");
+    return handled;
   }
 
   @Override
   public boolean dispatchTouchEvent(MotionEvent ev) {
-    if (ev.getActionMasked() != MotionEvent.ACTION_MOVE) {
-      Log.d(name, "-> dispatchTouchEvent (" + ev.toString() + ")");
-    }
+    Log.d(name, "-> dispatchTouchEvent (" + ev.toString() + ")");
     boolean handled = super.dispatchTouchEvent(ev);
-    if (ev.getActionMasked() != MotionEvent.ACTION_MOVE) {
-      Log.d(name, "<- dispatchTouchEvent (" + handled + ")");
-    }
+    Log.d(name, "<- dispatchTouchEvent (" + handled + ")");
     return handled;
   }
 }

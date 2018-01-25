@@ -11,13 +11,9 @@ public class MainActivity extends Activity {
 
   @Override
   public boolean dispatchTouchEvent(MotionEvent ev) {
-    if (ev.getActionMasked() != MotionEvent.ACTION_MOVE) {
-      Log.d(TAG, "-> dispatchTouchEvent (" + ev.toString() + ")");
-    }
+    Log.d(TAG, "-> dispatchTouchEvent (" + ev.toString() + ")");
     boolean handled = super.dispatchTouchEvent(ev);
-    if (ev.getActionMasked() != MotionEvent.ACTION_MOVE) {
-      Log.d(TAG, "<- dispatchTouchEvent (" + handled + ")");
-    }
+    Log.d(TAG, "<- dispatchTouchEvent (" + handled + ")");
     return handled;
   }
 
@@ -28,10 +24,5 @@ public class MainActivity extends Activity {
     findViewById(R.id.root).setOnClickListener((v) ->
         Log.d("root", "clicked")
     );
-
-    findViewById(R.id.a).setOnClickListener((v) ->
-        Log.d("a", "clicked")
-    );
-
   }
 }
