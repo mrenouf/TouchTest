@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.mrenouf.touchtest.TouchTracingFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="50dp"
+    android:background="#222222">
+
+    <com.example.mrenouf.touchtest.TouchTracingFrameLayout
+        android:id="@+id/a"
+        android:layout_width="150dp"
+        android:layout_height="280dp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="#5e5e57">
+
+        <com.example.mrenouf.touchtest.TouchTracingFrameLayout
+            android:id="@+id/a.1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="#c27722">
+
+
+        <com.example.mrenouf.touchtest.TouchTracingFrameLayout
+                android:id="@+id/a.2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="#2f3fcf"
+            />
+
+        </com.example.mrenouf.touchtest.TouchTracingFrameLayout>
+
+    </com.example.mrenouf.touchtest.TouchTracingFrameLayout>
+
+    <com.example.mrenouf.touchtest.TouchTracingFrameLayout
+        android:id="@+id/b"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:elevation="8dp"
+        android:alpha="0.8"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="50dp"
+        android:background="#227777">
+
+        <com.example.mrenouf.touchtest.TouchTracingFrameLayout
+            android:id="@+id/b.1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="#227722">
+
+            <com.example.mrenouf.touchtest.TouchTracingFrameLayout
+                android:id="@+id/b.2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="#772222" />
+
+        </com.example.mrenouf.touchtest.TouchTracingFrameLayout>
+
+    </com.example.mrenouf.touchtest.TouchTracingFrameLayout>
+
+</com.example.mrenouf.touchtest.TouchTracingFrameLayout>
